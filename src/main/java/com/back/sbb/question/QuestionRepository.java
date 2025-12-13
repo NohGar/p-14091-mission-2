@@ -4,6 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     //제목으로 찾기
@@ -14,4 +17,6 @@ public interface QuestionRepository extends JpaRepository<Question, Integer> {
 
     //특정 문자열로 찾기
     List<Question> findBySubjectLike(String subject);
+
+    Page<Question> findAll(Pageable pageable);
 }
